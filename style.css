@@ -1,0 +1,13 @@
+.myClass {
+    color: rgb(0, 0, 0);
+}
+
+.myClass:hover {
+    background-color: rgb(247, 8, 8);
+    color: white;
+}
+
+
+.highlighted{
+background-color: yellow;
+}
