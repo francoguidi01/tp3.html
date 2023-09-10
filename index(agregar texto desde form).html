@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>TP3</title>
+</head>
+ 
+<body>
+    <form onsubmit="helloWorld()">
+        <input id="damian" type="text" placeholder="what do you wnat to say on the paragraph?">
+        <button type="submit">SEND</button>
+    </form>
+    <p id="myId"></p>
+
+    <script>
+        function helloWorld() {
+            var paragraph = document.getElementById("myId");
+            var textToPara = document.getElementById("damian").value; //USAS VALUE ACA PORQUE ASI CONSEGUIS LO QUE ESCRIBE EL ACTOR SI NO TE TIRA CUALQUIERA
+
+            paragraph.textContent = textToPara;
+        }
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Tp2</title>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <input type="button"  onmouseover="startAddingRows()" onclick="insertRow(value)" value="Dealer">
+    <input type="button" onclick="insertRow(value)" value="Pepe Quintana">
+    <input type="button"    onclick="stopAddingRows()" value="Cortalo Papi">
+    <input type="button" onclick="deleteRow()" value="Delete row">
+    <input type="button" onclick="deleteAll()" value="Delete all">
+    <br><br>
+    <table style="width:100%" class="myTable">
+        <tr>
+            <th>Header 1</th>
+            <th>Header 2</th>
+        </tr>
+    </table>
+
+    <script>
+        let i = 1;
+        function insertRow(value) {
+            const theTable = document.querySelector(".myTable");
+            const newRow = theTable.insertRow(-1);
+            const cell1 = newRow.insertCell(0);
+            const cell2 = newRow.insertCell(1);
+
+            cell1.textContent = value + " " + i;
+            cell2.textContent = value + " " + i;
+            i++;
+        }
+
+        function deleteRow() {
+
+            const theTable = document.querySelector(".myTable");
+            const rowCount = theTable.rows.length;
+
+            if (rowCount > 1) {
+                theTable.deleteRow(rowCount - 1);
+                i--;
+            }
+        }
+
+        function deleteAll() {
+            const theTable = document.querySelector(".myTable");
+            while (theTable.rows.length > 1) {
+                theTable.deleteRow(1);
+            }
+            i=1;
+        }
+    </script>
+
+<script>
+
+    let intervalId;
+
+    function startAddingRows() {
+        const theTable = document.querySelector(".myTable");
+        intervalId = setInterval(function () {
+            const newRow = theTable.insertRow(-1);
+            const cell1 = newRow.insertCell(0);
+            const cell2 = newRow.insertCell(1);
+            cell1.textContent = "Dealer " + i;
+            cell2.textContent = "Nueva Celda " + i;
+            i++;
+        }, 3); // Cambia 1000 a la cantidad de milisegundos que desees entre cada inserción de fila.
+    }
+
+    function stopAddingRows() {
+        clearInterval(intervalId);
+    }
+</script>
+</body>
+
+</html>
